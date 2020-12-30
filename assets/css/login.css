@@ -38,7 +38,7 @@ body {
 .layui-form-item {
     position: relative;
 }
-.layui-icon {
+.icon-position {
     position: absolute;
     left: 10px;
     top: 10px;

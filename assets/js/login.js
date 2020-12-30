@@ -58,7 +58,7 @@ $('#form-login').on('submit', function(e){
             layer.msg(res.message)
             //将token值存入本地存储
             localStorage.setItem('token', res.token)
-            location.href = 'index.html'
+            location.href = '/index.html'
         }
     })
 })
