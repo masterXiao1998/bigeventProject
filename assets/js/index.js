@@ -1,10 +1,16 @@
 $(function () {
     getUserInfo()
-    $('#btnLogout').on('click', function() {
-        //先清空token
-        localStorage.removeItem('token')
-        //然后跳转页面
-        location.href = '/login.html'
+    //退出功能
+    $('#btnLogout').on('click', function () {
+        layer.confirm('是否退出', function (index) {
+            //先清空token
+            localStorage.removeItem('token')
+            //然后跳转页面
+            location.href = '/login.html'
+
+            layer.close(index);
+        });
+
     })
 })
 
@@ -32,13 +38,15 @@ function getUserInfo() {
 }
 //定义渲染用户头像的名称
 function renderAvatar(user) {
-    var name = user.username || user.nickname
+    
+    var name = user.nickname || user.username 
     $('#welcome').text('欢迎' + name);
     if (user.user_pic !== null) {
-        console.log(2);
+  
         $('.layui-nav-img').attr('src', user.user_pic).show();
         $('.text-avatar').hide()
     } else {
+        
         $('.layui-nav-img').hide();
         $('.text-avatar').text(name[0].toUpperCase()).show()
     }
